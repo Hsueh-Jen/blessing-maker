@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+    <title>學仁生日祝福產生器</title>
+
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<style>
+    * {
+        font-family: Microsoft JhengHei;
+        color: #3A4145;
+    }
+
+    body {
+        background-image: url('img/bg.gif');
+        background-repeat: repeat;
+    }
+
+    .container {
+        max-width: 750px;
+        background: white;
+    }
+
+    #HB {
+        display: inline-block;
+        border-radius: 50%;
+        box-shadow: 4px 4px 12px -2px rgba(20%, 20%, 40%, 0.5);
+    }
+</style>
+
+<script>
+
+    function CopyToClipboard(text) {
+        var tempInput = document.createElement("input");
+        tempInput.style = "position: absolute; left: -1000px; top: -1000px";
+        tempInput.value = text;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+    }
+
+    $(function () {
+        var len = $('#sample option').length - 1;
+        $("#sample").on('change', function () {
+            var content = $("#sample option[value='" + $(this).val() + "']").text();
+            $("#wishText").val(content);
+        });
+
+        $("#randomBtn").on('click', function () {
+            var rand = Math.floor((Math.random() * len) + 1);
+            console.log(rand);
+            var content = $("#sample option[value='" + rand + "']").text();
+            $("#wishText").val(content);
+            $("#sample").val(rand);
+        });
+
+        $("#copyBtn").on('click', function () {
+            CopyToClipboard($("#wishText").val());
+        });
+
+        $("#wishcount").html(len);
+
+    });
+
+
+</script>
+
+
+
+<body>
+
+    <div class="container" style="padding: 0 30px 0 30px;">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 style="font-size:72px; text-align:center; font-weight:bold;">學仁生日祝福產生器</h1>
+                <div style="font-size:20px; text-align:center; color:rgb(155, 155, 155)">還在想要給學仁什麼生日祝福嗎？別再煩惱了，因為學仁都幫你想到了！<br>目前有暖暖的<div
+                        id="wishcount" style="display:inline;"></div>種祝福任君挑選喔！</div>
+                <img id="HB" src="img/avatar.jpg" style="margin:30px auto; display:block;" width="250" alt="學仁生日祝福生產器">
+                <hr>
+
+                <div class="form-group row">
+                    <div class="col-md-7">
+                        <select name="" id="sample" class="form-control input-lg" style="margin-bottom:5px;">
+                            <option disabled selected> -- 可選擇精心設計過的祝福 -- </option>
+                            <option value="1">ʕ•ᴥ•ʔ (◕ᴥ◕) (・ω<) (ΦωΦ)</option> <option value="2">都是學仁，害我對自己的長相越來越沒自信，即使心裡面帶著這麼一絲絲的不快，還是想在你生日的這天給你一點祝福。</option>
+                            <option value="3">以前總是不知「帥」這個字是怎麼造出來的，直到我遇見了學仁後......</option>
+                            <option value="4">學仁生日快樂喔！ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥！對你的愛慕之意是上面這些愛心都不足以表達的，但還是希望能傳達給你^_^</option>
+                            <option value="5">獻給煞氣a學仁，當我們拿起蛋糕，就是要捍衛自己的兄弟，你借給我的BWS我很愛，等我抓完我的豪力頭後就會趕去你的生日趴！</option>
+                            <option value="6">學仁！你真的很棒！在你生日灌水灌水灌水的這一天我一定灌水灌水灌水要給你滿滿灌水灌水灌水的祝福</option>
+                            <option value="7">感恩學仁大大，讚嘆學仁大大！謝謝你被生下來，再次感謝！</option>
+                            <option value="8">實在是不想在FB留下對你的祝福，只想私訊給你，但我不想讓自己對你的關心被埋沒，所以鼓起勇氣貼在FB上讓眾人都知道我在乎你！(・∀・)</option>
+                            <option value="9">痾...... 其實我不知道要說什麼...... 隨便啦！ 生日快樂！</option>
+                            <option value="10">學仁先生，每次看到你的廢文我都會會心一笑，喜歡你暖暖的文字，洋溢著滿滿的幸福，在您出生的紀念日給你滿滿的祝福唷！</option>
+                            <option value="11">我們不禁哄堂大笑，同樣的一件衣料，每個人卻有不同的感覺。那位朋友連忙把衣料用紙包好，她覺得衣料就是衣料，不是棋盤，也不是稿紙，更不是綠豆糕。對不起，我用雅量來湊字數，但學仁你應該很有雅量，可以接納我的^^，祝你生日快樂。</option>
+                            <option value="12">謝謝學仁生日祝福產生器被發明，讓我可以講出對學仁最深的愛意與敬意，但卻又不會讓人發現是我自己打的，產生器讓我更有安全感，讓我更有勇氣對學仁說出真摯的祝福，生日快樂！</option>
+                            <option value="13">記得年幼時在看偉人傳記，結果一直找不到學仁傳，我真的很生氣，為什麼會沒有這本書呢？沒關係，學仁我一定挺你出書的，生日快樂！</option>
+                            <option value="14">你以為我很想給你祝福嘛？才沒有呢！我只是...我只是，我只是剛好記住了你的生日，然後覺得你應該需要一點祝福吧...才沒有特別記呢！生日快樂啦！</option>
+                            <option value="15">我知道被自己帥醒是一件很難受的事情，但是學仁你不要氣餒，我已經寄了一包安眠藥給你了，睡前記得服用，然後不要太常照鏡子，最後祝你生日快樂喔。</option>
+                            <option value="16">Wang Hsueh Jen ni hao,jin ten su ni der sir ren,tsu ni sir ren quite ler</option>
+                            <option value="17">臣亮言：先帝創業未半，而中道崩殂。今天下三分，益州疲弊，此誠危急存亡之秋也。然侍衛之臣，不懈於內；忠志之士，忘身於外者，蓋追先帝之殊遇，欲報之於陛下也。誠宜開張聖聽，以光先帝遺德，恢弘志士之氣；不宜妄自菲薄，引喻失義，以塞忠諫之路也。宮中府中，俱為一體，陟罰臧否，不宜異同。若有作姦犯科，及為忠善者，宜付有司，論其刑賞，以昭陛下平明之治，不宜篇私，使內外異法也。用出師表湊字數的人最討厭了，我才不會這樣，我只是不小心按到Ctrl+V而已，生日快樂。</option>
+                            <option value="18">學仁看著鮭魚逆流而上會想到要奮發上進，而我看到鮭魚只會想到鮭魚壽司，我很慚愧，謝謝學仁讓我看齊，祝你生日快樂。</option>
+                            <option value="19">推 HsuehJenNO1:三樓愛學仁
+推 WangXiaoRen:幫蓋
+推 loveHsuehJen5566:冒險蓋
+推 loveHsuehJen5566:天啊！好害羞啊！
+推 allenwang56:>///<</option> 
+                           <option value="20">2月12號，學仁出生了，這麼重要的日子，當然會想把它當作刺青的素材，我在每位來刺青的客人身上都刺上了你的生日，他們都很生氣，我很也很氣，這些人都只想到自己，學仁！我會繼續努力的！你也要加油！</option>
+                        </select>
+
+                    </div>
+                    <div class="col-md-3" style="margin-bottom:5px;">
+                        <button id="randomBtn" class="btn btn-block btn-success">幫我挑一個！</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button id="copyBtn" class="btn btn-block btn-primary">
+                            複製
+                        </button>
+                    </div>
+                </div>
+                <textarea id="wishText" rows="5" placeholder="請輸入祝福語或是選擇罐頭祝福" class="form-control input-lg"></textarea>
+                <br>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
